@@ -23,7 +23,7 @@ public class Rover {
             }
 
             if (command == 'M') {
-                direction.move();
+                direction = direction.move();
             }
         }
 

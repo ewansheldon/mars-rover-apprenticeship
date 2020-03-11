@@ -20,4 +20,9 @@ public class South extends Direction {
     public Direction turnLeft() {
         return new East(x, y);
     }
+
+    public South move() {
+        Vector vector = getMovementVector();
+        return new South(x + vector.getX(), y + vector.getY());
+    }
 }

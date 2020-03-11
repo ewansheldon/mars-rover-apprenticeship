@@ -17,11 +17,7 @@ public abstract class Direction {
 
     public abstract Direction turnLeft();
 
-    void move() {
-        Vector vector = getMovementVector();
-        x += vector.getX();
-        y += vector.getY();
-    }
+    public abstract Direction move();
 
     public int getX() {
         return x;
