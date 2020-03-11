@@ -28,16 +28,16 @@ public class Rover {
 
     private void move(int rCount) {
 
-        if (rCount % 4 == 0) {
+        if (direction.symbol() == "N") {
             y++;
         }
-        if (rCount % 4 == 1) {
+        if (direction.symbol() == "E") {
             x++;
         }
-        if (rCount % 4 == 2) {
+        if (direction.symbol() == "S") {
             y--;
         }
-        if (rCount % 4 == 3) {
+        if (direction.symbol() == "W") {
             x--;
         }
     }
