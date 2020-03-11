@@ -1,7 +1,6 @@
 package com.codurance.mars_rover;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -20,7 +19,9 @@ public class RoverShould {
     @CsvSource({
             "'', 0:0:N",
             "R, 0:0:E",
-            "RR, 0:0:S"
+            "RR, 0:0:S",
+            "RRR, 0:0:W",
+            "RRRR, 0:0:N"
     })
     void turn_rover_right(String commands, String expectedPosition) {
         String position = rover.execute(commands);

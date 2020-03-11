@@ -2,12 +2,9 @@ package com.codurance.mars_rover;
 
 public class Rover {
     public String execute(String commands) {
-        if (commands.equals("RR")) {
-            return "0:0:S";
-        }
-        if (commands.equals("R")) {
-            return "0:0:E";
-        }
-        return "0:0:N";
+        String[] directions = new String[]{"N", "E", "S", "W", "N"};
+        String direction = directions[commands.length()];
+
+        return "0:0:" + direction;
     }
 }
