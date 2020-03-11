@@ -1,15 +1,15 @@
 package com.codurance.mars_rover;
 
-public class Rover {
+import com.codurance.mars_rover.rover.Rover;
+import com.codurance.mars_rover.rover.RoverNorth;
 
-    private int y;
-    private int x;
-    private Direction direction;
+public class RoverController {
+    private Rover direction;
+    private Grid grid;
 
-    public Rover() {
-        y = 0;
-        x = 0;
-        direction = new North(x, y);
+    public RoverController(Grid grid) {
+        this.grid = grid;
+        direction = new RoverNorth(0, 0);
     }
 
     public String execute(String commands) {

@@ -8,11 +8,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoverShould {
 
-    private Rover rover;
+    private RoverController rover;
+
+
 
     @BeforeEach
     void setUp() {
-        rover = new Rover();
+        Grid grid = new Grid(0, 0);
+        rover = new RoverController(grid);
     }
 
     @ParameterizedTest
@@ -62,6 +65,15 @@ public class RoverShould {
             "LLLLL, 0:0:W"
     })
     void turn_rover_left(String commands, String expectedPosition) {
+        String position = rover.execute(commands);
+        assertEquals(expectedPosition, position);
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "MMMMMMMMMM, 0:0:N",
+    })
+    void wraps_around_the_board(String commands, String expectedPosition) {
         String position = rover.execute(commands);
         assertEquals(expectedPosition, position);
     }
