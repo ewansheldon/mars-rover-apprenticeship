@@ -9,7 +9,7 @@ public class Rover {
     public Rover() {
         y = 0;
         x = 0;
-        direction = new North(x,y);
+        direction = new North(x, y);
     }
 
     public String execute(String commands) {
