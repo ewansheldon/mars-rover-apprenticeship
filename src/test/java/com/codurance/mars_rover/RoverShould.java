@@ -56,9 +56,10 @@ public class RoverShould {
     @ParameterizedTest
     @CsvSource({
             "L, 0:0:W",
-//            "LL, 0:0:S",
-//            "LLL, 0:0:E",
-//            "LLLL, 0:0:N"
+            "LL, 0:0:S",
+            "LLL, 0:0:E",
+            "LLLL, 0:0:N",
+            "LLLLL, 0:0:W"
     })
     void turn_rover_left(String commands, String expectedPosition) {
         String position = rover.execute(commands);
