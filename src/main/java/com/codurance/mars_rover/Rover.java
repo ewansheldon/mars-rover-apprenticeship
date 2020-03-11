@@ -4,31 +4,29 @@ public class Rover {
 
     private int y;
     private int x;
+    private Direction direction;
 
     public Rover() {
         y = 0;
         x = 0;
+        direction = new NorthDirection();
     }
 
     public String execute(String commands) {
-        int rCount = 0;
-
         for (char command : commands.toCharArray()) {
             if (command == 'R') {
-                rCount++;
+                direction = direction.turnRight();
             }
             if (command == 'M') {
-                move(rCount);
+                move(direction.getIndex());
             }
         }
 
-        String[] directions = new String[]{"N", "E", "S", "W"};
-        String direction = directions[rCount % 4];
-
-        return x + ":" + y + ":" + direction;
+        return x + ":" + y + ":" + direction.symbol();
     }
 
     private void move(int rCount) {
+
         if (rCount % 4 == 0) {
             y++;
         }
