@@ -44,7 +44,9 @@ public class RoverShould {
     @ParameterizedTest
     @CsvSource({
             "MR, 0:1:E",
-            "RM, 1:0:E"
+            "RM, 1:0:E",
+            "MMRRM, 0:1:S",
+            "RMMRRM, 1:0:W"
     })
     void turn_and_move(String commands, String expectedPosition) {
         String position = rover.execute(commands);

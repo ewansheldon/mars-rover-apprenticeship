@@ -18,11 +18,7 @@ public class Rover {
                 rCount++;
             }
             if (command == 'M') {
-                if (rCount % 2 == 0) {
-                    y++;
-                } else {
-                    x++;
-                }
+                move(rCount);
             }
         }
 
@@ -30,5 +26,20 @@ public class Rover {
         String direction = directions[rCount % 4];
 
         return x + ":" + y + ":" + direction;
+    }
+
+    private void move(int rCount) {
+        if (rCount % 4 == 0) {
+            y++;
+        }
+        if (rCount % 4 == 1) {
+            x++;
+        }
+        if (rCount % 4 == 2) {
+            y--;
+        }
+        if (rCount % 4 == 3) {
+            x--;
+        }
     }
 }
