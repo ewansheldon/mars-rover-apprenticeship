@@ -1,11 +1,33 @@
 package com.codurance.mars_rover;
 
-public interface Direction {
-  Direction turnRight();
+public abstract class Direction {
+  protected int x;
+  protected int y;
 
-  String symbol();
+  public Direction(int x, int y) {
+    this.x = x;
+    this.y = y;
+  }
 
-  Vector getMovementVector();
+  public abstract Direction turnRight();
 
-  Direction turnLeft();
+  public abstract String symbol();
+
+  public abstract Vector getMovementVector();
+
+  public abstract Direction turnLeft();
+
+  void move() {
+      Vector vector = getMovementVector();
+      x += vector.getX();
+      y += vector.getY();
+  }
+
+  public int getX() {
+    return x;
+  }
+
+  public int getY() {
+    return y;
+  }
 }

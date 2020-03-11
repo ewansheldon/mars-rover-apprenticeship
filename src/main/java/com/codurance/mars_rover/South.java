@@ -1,8 +1,12 @@
 package com.codurance.mars_rover;
 
-public class South implements Direction {
+public class South extends Direction {
+  public South(int x, int y) {
+    super(x, y);
+  }
+
   public Direction turnRight() {
-    return new West();
+    return new West(x, y);
   }
 
   public String symbol() {
@@ -14,6 +18,6 @@ public class South implements Direction {
   }
 
   public Direction turnLeft() {
-    return new East();
+    return new East(x, y);
   }
 }

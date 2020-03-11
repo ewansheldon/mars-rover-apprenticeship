@@ -9,7 +9,7 @@ public class Rover {
     public Rover() {
         y = 0;
         x = 0;
-        direction = new North();
+        direction = new North(x,y);
     }
 
     public String execute(String commands) {
@@ -23,16 +23,11 @@ public class Rover {
             }
 
             if (command == 'M') {
-                move();
+                direction.move();
             }
         }
 
-        return x + ":" + y + ":" + direction.symbol();
+        return direction.getX() + ":" + direction.getY() + ":" + direction.symbol();
     }
 
-    private void move() {
-        Vector vector = direction.getMovementVector();
-        x += vector.getX();
-        y += vector.getY();
-    }
 }
