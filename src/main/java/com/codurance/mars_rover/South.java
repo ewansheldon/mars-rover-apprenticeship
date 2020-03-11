@@ -1,8 +1,8 @@
 package com.codurance.mars_rover;
 
-public class SouthDirection implements Direction {
+public class South implements Direction {
   public Direction turnRight() {
-    return new WestDirection();
+    return new West();
   }
 
   public String symbol() {
@@ -11,5 +11,9 @@ public class SouthDirection implements Direction {
 
   public Vector getMovementVector() {
     return new Vector(0, -1);
+  }
+
+  public Direction turnLeft() {
+    return new East();
   }
 }

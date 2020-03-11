@@ -6,4 +6,6 @@ public interface Direction {
   String symbol();
 
   Vector getMovementVector();
+
+  Direction turnLeft();
 }

@@ -9,13 +9,17 @@ public class Rover {
     public Rover() {
         y = 0;
         x = 0;
-        direction = new NorthDirection();
+        direction = new North();
     }
 
     public String execute(String commands) {
         for (char command : commands.toCharArray()) {
             if (command == 'R') {
                 direction = direction.turnRight();
+            }
+
+            if (command == 'L') {
+                direction = direction.turnLeft();
             }
 
             if (command == 'M') {
