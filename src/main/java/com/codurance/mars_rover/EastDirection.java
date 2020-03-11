@@ -8,4 +8,8 @@ public class EastDirection implements Direction {
   public String symbol() {
     return "E";
   }
+
+  public Vector getMovementVector() {
+    return new Vector(1,0);
+  }
 }

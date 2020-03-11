@@ -8,4 +8,8 @@ public class NorthDirection implements Direction {
   public String symbol() {
     return "N";
   }
+
+  public Vector getMovementVector() {
+    return new Vector(0, 1);
+  }
 }

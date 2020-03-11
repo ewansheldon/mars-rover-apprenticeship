@@ -27,18 +27,8 @@ public class Rover {
     }
 
     private void move() {
-
-        if (direction.symbol() == "N") {
-            y++;
-        }
-        if (direction.symbol() == "E") {
-            x++;
-        }
-        if (direction.symbol() == "S") {
-            y--;
-        }
-        if (direction.symbol() == "W") {
-            x--;
-        }
+        Vector vector = direction.getMovementVector();
+        x += vector.getX();
+        y += vector.getY();
     }
 }

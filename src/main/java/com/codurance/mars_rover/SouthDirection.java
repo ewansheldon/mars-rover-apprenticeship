@@ -8,4 +8,8 @@ public class SouthDirection implements Direction {
   public String symbol() {
     return "S";
   }
+
+  public Vector getMovementVector() {
+    return new Vector(0, -1);
+  }
 }

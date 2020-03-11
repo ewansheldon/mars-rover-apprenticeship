@@ -8,4 +8,8 @@ public class WestDirection implements Direction {
   public String symbol() {
     return "W";
   }
+
+  public Vector getMovementVector() {
+    return new Vector(-1, 0);
+  }
 }
