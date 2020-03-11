@@ -17,6 +17,7 @@ public class Rover {
             if (command == 'R') {
                 direction = direction.turnRight();
             }
+
             if (command == 'M') {
                 move(direction.getIndex());
             }

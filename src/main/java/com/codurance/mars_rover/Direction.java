@@ -15,8 +15,6 @@ public class Direction {
     return new Direction((index+1) % 4);
   }
 
-
-
   public String symbol(){
     String[] directions = new String[]{"N", "E", "S", "W"};
     return directions[index];
