@@ -1,7 +1,5 @@
 package com.codurance.mars_rover.rover;
 
-import com.codurance.mars_rover.Vector;
-
 public class RoverWest extends Rover {
     public RoverWest(int x, int y) {
         super(x, y);

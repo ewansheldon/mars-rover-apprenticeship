@@ -1,5 +1,7 @@
 package com.codurance.mars_rover.rover;
 
+import com.codurance.mars_rover.Grid;
+
 public abstract class Rover {
     int x;
     int y;
