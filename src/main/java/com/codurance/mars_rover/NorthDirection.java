@@ -1,6 +1,6 @@
 package com.codurance.mars_rover;
 
-public class NorthDirection extends Direction {
+public class NorthDirection implements Direction {
   public Direction turnRight() {
     return new EastDirection();
   }
