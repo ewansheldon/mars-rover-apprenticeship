@@ -2,6 +2,8 @@ package com.codurance.mars_rover;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -14,15 +16,14 @@ public class RoverShould {
         rover = new Rover();
     }
 
-    @Test
-    void return_north_if_no_commands() {
-        String response = rover.execute("");
-        assertEquals("0:0:N", response);
-    }
-
-    @Test
-    void return_east_if_right_command() {
-        String response = rover.execute("R");
-        assertEquals("0:0:E", response);
+    @ParameterizedTest
+    @CsvSource({
+            "'', 0:0:N",
+            "R, 0:0:E",
+            "RR, 0:0:S"
+    })
+    void turn_rover_right(String commands, String expectedPosition) {
+        String position = rover.execute(commands);
+        assertEquals(expectedPosition, position);
     }
 }
