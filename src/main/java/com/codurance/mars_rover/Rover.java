@@ -19,14 +19,14 @@ public class Rover {
             }
 
             if (command == 'M') {
-                move(direction.getIndex());
+                move();
             }
         }
 
         return x + ":" + y + ":" + direction.symbol();
     }
 
-    private void move(int rCount) {
+    private void move() {
 
         if (direction.symbol() == "N") {
             y++;
