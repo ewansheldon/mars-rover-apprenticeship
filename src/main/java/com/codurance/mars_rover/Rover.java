@@ -3,8 +3,10 @@ package com.codurance.mars_rover;
 public class Rover {
     private final Coordinates coordinates;
     private Direction direction;
+    private Grid grid;
 
     public Rover(Grid grid) {
+        this.grid = grid;
         direction = new NorthDirection();
         coordinates = new Coordinates(0,0);
     }
@@ -34,6 +36,7 @@ public class Rover {
 
     private void move() {
         coordinates.update(direction.forward());
+        grid.wrap(coordinates);
     }
 
     private String formatOutput() {

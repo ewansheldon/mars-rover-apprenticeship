@@ -70,4 +70,15 @@ public class RoverShould {
         String output = rover.execute("RMRRM");
         assertEquals("0:0:W", output);
     }
+
+    @Test
+    void position_09S_RRM() {
+        String output = rover.execute("RRM");
+        assertEquals("0:9:S", output);
+    }
+    @Test
+    void position_00N_MMMMMMMMM() {
+        String output = rover.execute("MMMMMMMMMM");
+        assertEquals("0:0:N", output);
+    }
 }
