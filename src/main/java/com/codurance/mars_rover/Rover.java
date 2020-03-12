@@ -15,13 +15,21 @@ public class Rover {
                 move();
             }
             if (command == 'L') {
-                direction = direction.turnLeft();
+                turnLeft();
             }
             if (command == 'R') {
-                direction = direction.turnRight();
+                turnRight();
             }
         }
         return formatOutput();
+    }
+
+    private void turnRight() {
+        direction = direction.turnRight();
+    }
+
+    private void turnLeft() {
+        direction = direction.turnLeft();
     }
 
     private String formatOutput() {
