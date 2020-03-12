@@ -20,4 +20,12 @@ public class RoverShould {
         String output = rover.execute("LL");
         assertEquals("0:0:S", output);
     }
+
+    @Test
+    void rotate_left_three_times() {
+        Grid grid = new Grid(10, 10);
+        Rover rover = new Rover(grid);
+        String output = rover.execute("LLL");
+        assertEquals("0:0:E", output);
+    }
 }
