@@ -12,4 +12,12 @@ public class RoverShould {
         String output = rover.execute("L");
         assertEquals("0:0:W", output);
     }
+
+    @Test
+    void rotate_left_twice() {
+        Grid grid = new Grid(10, 10);
+        Rover rover = new Rover(grid);
+        String output = rover.execute("LL");
+        assertEquals("0:0:S", output);
+    }
 }
