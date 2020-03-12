@@ -1,25 +1,21 @@
 package com.codurance.mars_rover;
 
 public class NorthDirection implements Direction {
-    private String direction;
-
-    public NorthDirection(String direction) {
-        this.direction = direction;
-    }
+    private static final String DIRECTION = "N";
 
     @Override
     public Direction turnLeft() {
-        return new WestDirection("W");
+        return new WestDirection();
     }
 
     @Override
     public Direction turnRight() {
-        return new EastDirection("E");
+        return new EastDirection();
     }
 
     @Override
     public String toString() {
-        return direction;
+        return DIRECTION;
     }
 
     @Override

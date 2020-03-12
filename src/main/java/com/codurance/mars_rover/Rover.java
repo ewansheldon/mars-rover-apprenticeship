@@ -5,7 +5,7 @@ public class Rover {
     private Direction direction;
 
     public Rover(Grid grid) {
-        direction = new NorthDirection("N");
+        direction = new NorthDirection();
         coordinates = new Coordinates(0,0);
     }
 
@@ -32,12 +32,13 @@ public class Rover {
         direction = direction.turnLeft();
     }
 
+    private void move() {
+        coordinates.update(direction.forward());
+    }
+
     private String formatOutput() {
         return coordinates.getX() + ":" + coordinates.getY() + ":" + direction;
     }
 
-    private void move() {
-        coordinates.update(direction.forward());
-    }
 
 }
