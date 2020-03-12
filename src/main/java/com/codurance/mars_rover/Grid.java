@@ -10,12 +10,8 @@ public class Grid {
     }
 
     public Coordinates wrap(Coordinates coordinates) {
-        int newX = wrapBoundary(coordinates.getX(), width);
-        int newY = wrapBoundary(coordinates.getY(), height);
+        int newX = Math.floorMod(coordinates.getX(), width);
+        int newY = Math.floorMod(coordinates.getY(), height);
         return new Coordinates(newX, newY);
-    }
-
-    private int wrapBoundary(int coordinate, int boundary) {
-        return coordinate < 0 ? boundary - 1 : coordinate % boundary;
     }
 }
