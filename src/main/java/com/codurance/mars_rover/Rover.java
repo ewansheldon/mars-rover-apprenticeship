@@ -21,7 +21,11 @@ public class Rover {
                 direction = direction.turnRight();
             }
         }
-        return coordinates.x + ":" + coordinates.y + ":" + direction;
+        return formatOutput();
+    }
+
+    private String formatOutput() {
+        return coordinates.getX() + ":" + coordinates.getY() + ":" + direction;
     }
 
     private void move() {

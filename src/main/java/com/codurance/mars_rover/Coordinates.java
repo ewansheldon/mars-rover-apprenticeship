@@ -1,8 +1,8 @@
 package com.codurance.mars_rover;
 
 public class Coordinates {
-    int y;
-    int x;
+    private int y;
+    private int x;
 
     public Coordinates(int y, int x) {
         this.y = y;
@@ -10,7 +10,15 @@ public class Coordinates {
     }
 
     void update(int[] movementVector) {
-        x = x + movementVector[0];
-        y = y + movementVector[1];
+        x = getX() + movementVector[0];
+        y = getY() + movementVector[1];
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getX() {
+        return x;
     }
 }
