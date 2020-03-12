@@ -10,13 +10,13 @@ public class MissionControl {
     public String execute(String input) {
         for (char command : input.toCharArray()) {
             if (command == 'M') {
-                rover.move();
+                new MoveCommand(rover).execute();
             }
             if (command == 'L') {
-                rover.turnLeft();
+                new TurnLeft(rover).execute();
             }
             if (command == 'R') {
-                rover.turnRight();
+                new TurnRight(rover).execute();
             }
         }
         return rover.formatOutput();
