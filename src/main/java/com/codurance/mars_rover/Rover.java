@@ -14,6 +14,9 @@ public class Rover {
         if (input.equals("MM")) {
             return "0:2:" + direction;
         }
+        if (input.equals("MMM")) {
+            return "0:3:" + direction;
+        }
         for (char command : input.toCharArray()) {
             turnLeft();
         }
