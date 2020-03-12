@@ -1,11 +1,11 @@
 package com.codurance.mars_rover;
 
 public class Rover {
-    private String direction;
+    private Direction direction;
     private int y;
 
     public Rover(Grid grid) {
-        direction = "N";
+        direction = new Direction("N");
         y = 0;
     }
 
@@ -15,21 +15,10 @@ public class Rover {
                 y++;
             }
             if (command == 'L') {
-                turnLeft();
+                direction.turnLeft();
             }
         }
         return "0:" + y + ":" + direction;
     }
 
-    private void turnLeft() {
-        if (direction.equals("N")) {
-            direction = "W";
-        } else if (direction.equals("W")) {
-            direction = "S";
-        } else if (direction.equals("S")) {
-            direction = "E";
-        } else if (direction.equals("E")) {
-            direction = "N";
-        }
-    }
 }
