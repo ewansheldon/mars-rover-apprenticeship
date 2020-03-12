@@ -9,6 +9,9 @@ public class Rover {
 
     public String execute(String input) {
         for (char command : input.toCharArray()) {
+            if (command == 'M'){
+                return "0:1:" + direction;
+            }
             turnLeft();
         }
         return "0:0:" + direction;
