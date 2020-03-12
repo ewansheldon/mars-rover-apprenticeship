@@ -13,6 +13,11 @@ public class EastDirection implements Direction {
     }
 
     @Override
+    public Direction turnRight() {
+        return new SouthDirection("S");
+    }
+
+    @Override
     public String toString() {
         return direction;
     }

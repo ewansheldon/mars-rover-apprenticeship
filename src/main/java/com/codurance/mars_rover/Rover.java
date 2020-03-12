@@ -17,6 +17,9 @@ public class Rover {
             if (command == 'L') {
                 direction = direction.turnLeft();
             }
+            if (command == 'R') {
+                direction = direction.turnRight();
+            }
         }
         return "0:" + y + ":" + direction;
     }
