@@ -27,18 +27,8 @@ public class Rover {
     }
 
     private void move() {
-        if (direction instanceof NorthDirection) {
-            y++;
-        }
-        if (direction instanceof EastDirection) {
-            x++;
-        }
-        if (direction instanceof SouthDirection) {
-            y--;
-        }
-        if (direction instanceof WestDirection) {
-            x--;
-        }
+        int[] movementVector = direction.forward();
+        x += movementVector[0];
+        y += movementVector[1];
     }
-
 }

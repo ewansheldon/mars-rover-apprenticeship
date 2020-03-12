@@ -7,4 +7,6 @@ public interface Direction {
 
     @Override
     String toString();
+
+    int[] forward();
 }

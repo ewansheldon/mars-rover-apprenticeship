@@ -21,4 +21,9 @@ public class WestDirection implements Direction {
     public String toString() {
         return direction;
     }
+
+    @Override
+    public int[] forward() {
+        return new int[]{-1,0};
+    }
 }
