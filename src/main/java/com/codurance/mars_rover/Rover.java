@@ -11,34 +11,19 @@ public class Rover {
         coordinates = new Coordinates(0, 0);
     }
 
-    public String execute(String input) {
-        for (char command : input.toCharArray()) {
-            if (command == 'M') {
-                move();
-            }
-            if (command == 'L') {
-                turnLeft();
-            }
-            if (command == 'R') {
-                turnRight();
-            }
-        }
-        return formatOutput();
-    }
-
-    private void turnRight() {
+    public void turnRight() {
         direction = direction.turnRight();
     }
 
-    private void turnLeft() {
+    public void turnLeft() {
         direction = direction.turnLeft();
     }
 
-    private void move() {
+    public void move() {
         coordinates = grid.wrap(coordinates.update(direction.forward()));
     }
 
-    private String formatOutput() {
+    public String formatOutput() {
         return coordinates.getX() + ":" + coordinates.getY() + ":" + direction;
     }
 

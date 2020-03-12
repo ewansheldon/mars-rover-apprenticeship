@@ -11,11 +11,13 @@ public class RoverShould {
 
     private Grid grid;
     private Rover rover;
+    private MissionControl missionControl;
 
     @BeforeEach
     void setUp() {
         grid = new Grid(10, 10);
         rover = new Rover(grid);
+        missionControl = new MissionControl(rover);
     }
 
     @ParameterizedTest
@@ -26,7 +28,7 @@ public class RoverShould {
             "LLLL, 0:0:N"
     })
     void rotate_left(String input, String expectedOutput) {
-        String output = rover.execute(input);
+        String output = missionControl.execute(input);
         assertEquals(expectedOutput, output);
     }
 
@@ -38,7 +40,7 @@ public class RoverShould {
             "RRRR, 0:0:N"
     })
     void rotate_right(String input, String expectedOutput) {
-        String output = rover.execute(input);
+        String output = missionControl.execute(input);
         assertEquals(expectedOutput, output);
     }
 
@@ -49,49 +51,49 @@ public class RoverShould {
             "MMM, 0:3:N"
     })
     void move_only_in_N_direction(String input, String expectedOutput) {
-        String output = rover.execute(input);
+        String output = missionControl.execute(input);
         assertEquals(expectedOutput, output);
     }
 
     @Test
     void turns_right_and_moves_when_RM() {
-        String output = rover.execute("RM");
+        String output = missionControl.execute("RM");
         assertEquals("1:0:E", output);
     }
 
     @Test
     void position_00S_on_input_MRRM() {
-        String output = rover.execute("MRRM");
+        String output = missionControl.execute("MRRM");
         assertEquals("0:0:S", output);
     }
 
     @Test
     void position_00W_on_input_RMRRM() {
-        String output = rover.execute("RMRRM");
+        String output = missionControl.execute("RMRRM");
         assertEquals("0:0:W", output);
     }
 
     @Test
     void position_09S_RRM() {
-        String output = rover.execute("RRM");
+        String output = missionControl.execute("RRM");
         assertEquals("0:9:S", output);
     }
 
     @Test
     void position_00N_MMMMMMMMM() {
-        String output = rover.execute("MMMMMMMMMM");
+        String output = missionControl.execute("MMMMMMMMMM");
         assertEquals("0:0:N", output);
     }
 
     @Test
     void position_00E_RMMMMMMMMM() {
-        String output = rover.execute("RMMMMMMMMMM");
+        String output = missionControl.execute("RMMMMMMMMMM");
         assertEquals("0:0:E", output);
     }
 
     @Test
     void position_90W_LM() {
-        String output = rover.execute("LM");
+        String output = missionControl.execute("LM");
         assertEquals("9:0:W", output);
     }
 }
