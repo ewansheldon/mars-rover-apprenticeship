@@ -2,25 +2,23 @@ package com.codurance.mars_rover;
 
 public class Rover {
     private String direction;
+    private int y;
 
     public Rover(Grid grid) {
         direction = "N";
+        y = 0;
     }
 
     public String execute(String input) {
-        if (input.equals("M")) {
-            return "0:1:" + direction;
-        }
-        if (input.equals("MM")) {
-            return "0:2:" + direction;
-        }
-        if (input.equals("MMM")) {
-            return "0:3:" + direction;
-        }
         for (char command : input.toCharArray()) {
-            turnLeft();
+            if (command == 'M') {
+                y++;
+            }
+            if (command == 'L') {
+                turnLeft();
+            }
         }
-        return "0:0:" + direction;
+        return "0:" + y + ":" + direction;
     }
 
     private void turnLeft() {
