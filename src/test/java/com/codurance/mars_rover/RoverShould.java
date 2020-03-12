@@ -1,6 +1,7 @@
 package com.codurance.mars_rover;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -50,5 +51,23 @@ public class RoverShould {
     void move_only_in_N_direction(String input, String expectedOutput){
         String output = rover.execute(input);
         assertEquals(expectedOutput, output);
+    }
+
+    @Test
+    void turns_right_and_moves_when_RM() {
+        String output = rover.execute("RM");
+        assertEquals("1:0:E", output);
+    }
+
+    @Test
+    void position_00S_on_input_MRRM() {
+        String output = rover.execute("MRRM");
+        assertEquals("0:0:S", output);
+    }
+
+    @Test
+    void position_00W_on_input_RMRRM() {
+        String output = rover.execute("RMRRM");
+        assertEquals("0:0:W", output);
     }
 }
