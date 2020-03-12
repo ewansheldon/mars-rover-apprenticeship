@@ -9,18 +9,19 @@ public class Grid {
         this.height = height;
     }
 
-    public void wrap(Coordinates coordinates) {
+    public Coordinates wrap(Coordinates coordinates) {
         if (coordinates.getY() < 0) {
-            coordinates.setY(height - 1);
+            return new Coordinates(coordinates.getX(), height - 1);
         }
         if (coordinates.getY() >= height) {
-            coordinates.setY(0);
+            return new Coordinates(coordinates.getX(), 0);
         }
         if (coordinates.getX() >= width) {
-            coordinates.setX(0);
+            return new Coordinates(0, coordinates.getY());
         }
         if (coordinates.getX() < 0) {
-            coordinates.setX(width - 1);
+            return new Coordinates(width - 1, coordinates.getY());
         }
+        return coordinates;
     }
 }

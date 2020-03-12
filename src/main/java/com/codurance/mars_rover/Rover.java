@@ -1,14 +1,14 @@
 package com.codurance.mars_rover;
 
 public class Rover {
-    private final Coordinates coordinates;
+    private Coordinates coordinates;
     private Direction direction;
     private Grid grid;
 
     public Rover(Grid grid) {
         this.grid = grid;
         direction = new NorthDirection();
-        coordinates = new Coordinates(0,0);
+        coordinates = new Coordinates(0, 0);
     }
 
     public String execute(String input) {
@@ -35,8 +35,8 @@ public class Rover {
     }
 
     private void move() {
-        coordinates.update(direction.forward());
-        grid.wrap(coordinates);
+        coordinates = coordinates.update(direction.forward());
+        coordinates = grid.wrap(coordinates);
     }
 
     private String formatOutput() {
