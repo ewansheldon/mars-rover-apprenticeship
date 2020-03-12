@@ -1,6 +1,6 @@
 package com.codurance.mars_rover;
 
-public class MoveCommand {
+public class MoveCommand implements Command {
     private Rover rover;
 
     public MoveCommand(Rover rover) {

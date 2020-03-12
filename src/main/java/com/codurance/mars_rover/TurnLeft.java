@@ -1,6 +1,6 @@
 package com.codurance.mars_rover;
 
-public class TurnLeft {
+public class TurnLeft implements Command {
     private final Rover rover;
 
     public TurnLeft(Rover rover) {
