@@ -5,7 +5,7 @@ public class Rover {
     private int y;
 
     public Rover(Grid grid) {
-        direction = new Direction("N");
+        direction = new NorthDirection("N");
         y = 0;
     }
 
@@ -15,7 +15,7 @@ public class Rover {
                 y++;
             }
             if (command == 'L') {
-                direction.turnLeft();
+                direction = direction.turnLeft();
             }
         }
         return "0:" + y + ":" + direction;
