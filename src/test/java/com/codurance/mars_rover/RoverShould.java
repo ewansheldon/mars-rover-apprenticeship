@@ -34,4 +34,9 @@ public class RoverShould {
         String output = rover.execute("M");
         assertEquals("0:1:N", output);
     }
+    @Test
+    void move_to_02N_with_MM() {
+        String output = rover.execute("MM");
+        assertEquals("0:2:N", output);
+    }
 }

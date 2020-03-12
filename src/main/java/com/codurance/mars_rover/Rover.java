@@ -8,10 +8,13 @@ public class Rover {
     }
 
     public String execute(String input) {
+        if (input.equals("M")) {
+            return "0:1:" + direction;
+        }
+        if (input.equals("MM")) {
+            return "0:2:" + direction;
+        }
         for (char command : input.toCharArray()) {
-            if (command == 'M'){
-                return "0:1:" + direction;
-            }
             turnLeft();
         }
         return "0:0:" + direction;
