@@ -35,8 +35,7 @@ public class Rover {
     }
 
     private void move() {
-        coordinates = coordinates.update(direction.forward());
-        coordinates = grid.wrap(coordinates);
+        coordinates = grid.wrap(coordinates.update(direction.forward()));
     }
 
     private String formatOutput() {
