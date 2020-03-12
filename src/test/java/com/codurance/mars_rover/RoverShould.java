@@ -1,31 +1,30 @@
 package com.codurance.mars_rover;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RoverShould {
-    @Test
-    void rotate_left() {
-        Grid grid = new Grid(10, 10);
-        Rover rover = new Rover(grid);
-        String output = rover.execute("L");
-        assertEquals("0:0:W", output);
+
+    private Grid grid;
+    private Rover rover;
+
+    @BeforeEach
+    void setUp() {
+        grid = new Grid(10, 10);
+        rover = new Rover(grid);
     }
 
-    @Test
-    void rotate_left_twice() {
-        Grid grid = new Grid(10, 10);
-        Rover rover = new Rover(grid);
-        String output = rover.execute("LL");
-        assertEquals("0:0:S", output);
-    }
-
-    @Test
-    void rotate_left_three_times() {
-        Grid grid = new Grid(10, 10);
-        Rover rover = new Rover(grid);
-        String output = rover.execute("LLL");
-        assertEquals("0:0:E", output);
+    @ParameterizedTest
+    @CsvSource({
+            "L, 0:0:W",
+            "LL, 0:0:S",
+            "LLL, 0:0:E",
+    })
+    void rotate_left(String input, String expectedOutput) {
+        String output = rover.execute(input);
+        assertEquals(expectedOutput, output);
     }
 }
