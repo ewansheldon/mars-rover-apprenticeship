@@ -48,7 +48,7 @@ public class RoverShould {
             "MM, 0:2:N",
             "MMM, 0:3:N"
     })
-    void move_only_in_N_direction(String input, String expectedOutput){
+    void move_only_in_N_direction(String input, String expectedOutput) {
         String output = rover.execute(input);
         assertEquals(expectedOutput, output);
     }
@@ -76,9 +76,22 @@ public class RoverShould {
         String output = rover.execute("RRM");
         assertEquals("0:9:S", output);
     }
+
     @Test
     void position_00N_MMMMMMMMM() {
         String output = rover.execute("MMMMMMMMMM");
         assertEquals("0:0:N", output);
+    }
+
+    @Test
+    void position_00E_RMMMMMMMMM() {
+        String output = rover.execute("RMMMMMMMMMM");
+        assertEquals("0:0:E", output);
+    }
+
+    @Test
+    void position_90W_LM() {
+        String output = rover.execute("LM");
+        assertEquals("9:0:W", output);
     }
 }
